@@ -30,7 +30,8 @@ list(APPEND LIBS SDL2)
 #Mojosero
 include_directories(${CMAKE_SOURCE_DIR}/enhavo)
 file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/enhavo/*.h")
-aux_source_directory(fontkodo SOURCES)
+#aux_source_directory(fontkodo SOURCES)
+file(GLOB_RECURSE SOURCES "${CMAKE_SOURCE_DIR}/fontkodo/*.cpp")
 add_library(mojosero ${SOURCES} ${HEADERS})
 
 if(MOJOSERO_KONSTRUI_TESTOJN)
