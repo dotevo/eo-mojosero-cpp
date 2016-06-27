@@ -21,7 +21,7 @@ option(MOJOSERO_KONSTRUI_TESTOJN "Konstrui testojn por Mojosero" ON)
 
 #DIFINOJ
 if(WIN32)
-	add_definitions( -DWIN32 )
+        add_definitions( -DPLATFORM_WIN32 )
 endif(WIN32)
 
 #SDL
@@ -29,9 +29,10 @@ list(APPEND LIBS SDL2)
 
 #Mojosero
 include_directories(${CMAKE_SOURCE_DIR}/enhavo)
-file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/enhavo/*.h")
+file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/enhavo/*.hpp")
+file(GLOB_RECURSE TEMPLATES "${CMAKE_SOURCE_DIR}/enhavo/*.tpp")
 aux_source_directory(fontkodo SOURCES)
-add_library(mojosero ${SOURCES} ${HEADERS})
+add_library(mojosero ${SOURCES} ${HEADERS} ${TEMPLATES})
 
 if(MOJOSERO_KONSTRUI_TESTOJN)
 	add_subdirectory(testoj)
